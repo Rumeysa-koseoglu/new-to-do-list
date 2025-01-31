@@ -1,0 +1,163 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(#ed81be 50%, #403e3f 50%);
+}
+
+.app {
+    font-family: "Poppins", sans-serif;
+    width: min(95vw, 31.25em);
+    position:absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 1.875em;
+}
+
+.container {
+    padding: 2em 2.5em;
+    background-color: #ede0e0;
+    box-shadow: 0 1em 2em rgba(0, 0, 0, 0.3);
+    border-radius: 0.8em;
+}
+
+#wrapper {
+    position: relative;
+    display: grid;
+    grid-template-columns: 8fr 4fr;
+    gap: 1em;
+}
+
+#wrapper input {
+    width: 100%;
+    background-color: transparent;
+    color: #111111;
+    font-size: 0.9em;
+    border: none;
+    border-bottom: 2px solid #ddccdd;
+    padding: 1em 0.5em;
+}
+
+#wrapper input:focus {
+    outline: none;
+    border-color: #ed81be;
+}
+
+#wrapper button {
+    position: relative;
+    border-radius: 0.5em;
+    font-weight: 500;
+    font-size: 1em;
+    background-color: #403e3f;
+    border: none;
+    /*removes the outline of the element*/
+    outline: none;
+    color: #ede0e0;
+    cursor: pointer;
+}
+
+#tasks {
+    margin-top: 1em;
+    border-radius: 0.5em;
+    width: 100%;
+    position: relative;
+    padding: 1em 0.5em;
+}
+
+.task {
+    background-color: #fff5f9;
+    padding: 0.8em 1em;
+    display: grid;
+    grid-template-columns: 1fr 8fr 2fr 2fr;
+    gap: 1em;
+    border-radius: 0.5em;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.05);
+    align-items: center;
+    cursor: pointer;
+}
+
+/*this code leaves a space between task elements except the first element*/
+.task:not(:first-child) {
+    margin-top: 1em;
+}
+
+.task input[type="checkbox"] {
+    position: relative;
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 2px solid #e9c2e3;
+}
+
+.task input[type="checkbox"]:before {
+    content: ""; /* We create a pseudo-element by adding empty content */
+    position: absolute;/* We make the positioning absolute */
+    transform: translate(-50%, -50%);/* We position the element in the center by shifting it by half of its width and height */
+    top: 50%;/* We leave 50% space from the top (brings it to the middle of the parent) */
+    left: 50%;/* We leave 50% space from the left (puts it in the middle of the parent) */
+}
+
+.task input[type="checkbox"]:checked {
+    background-color: #ed81be;
+    border-color: #ed81be;
+}
+
+.task input[type="checkbox"]:checked:before {
+    position: absolute;
+    content: "\f00c"; /*this is a tic mark*/
+    color: #fff5f9;
+    font-size: 0.8em;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.task span {
+    font: 0.9em;
+    font-weight: 400;
+    word-break: break-all;/* Splits long words at the end of the line
+     and moves them to the next line. It can even cut in the middle
+      of a word. */
+}
+
+.task button {
+    color: #fff5f9;
+    width: 100%;
+    padding: 1em 0;
+    border-radius: 0.5em;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.edit {
+    background-color: #403e3f;
+}
+
+.delete {
+    background-color: #e92a2a;
+}
+
+#pending-tasks span {
+    color: #403e3f;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #a0a0a0;
+}
+
+#error {
+    text-align: center;
+    background-color: #ede0e0;
+    color:  #ff5c5c;
+    margin-top: 1.5em;
+    padding: 1em 0;
+    border-radius: 0.8em;
+    display: none;
+}
