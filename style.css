@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    max-width: 100%;
 }
 
 body {
@@ -24,6 +25,7 @@ body {
     background-color: #ede0e0;
     box-shadow: 0 1em 2em rgba(0, 0, 0, 0.3);
     border-radius: 0.8em;
+    border: 2px solid #ed81be;
 }
 
 #wrapper {
@@ -67,6 +69,9 @@ body {
     width: 100%;
     position: relative;
     padding: 1em 0.5em;
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .task {
@@ -160,4 +165,83 @@ body {
     padding: 1em 0;
     border-radius: 0.8em;
     display: none;
+}
+
+
+/*  media queries */
+
+@media (max-width: 768px) {
+    
+.app {
+    width: 90vw;
+    position: relative;
+    top: 0;
+}
+
+.container {
+    padding: 1.5em;
+}
+
+#wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#wrpaper input {
+    font-size: 1em;
+    padding: 0.8em;
+}
+
+#wrapper button {
+    width: 100%;
+    padding: 1em;
+    font-size: 1.2em;
+}
+
+.task {
+    grid-template-columns: 1fr 6fr 1fr 1fr;
+    padding: 0.6em;
+}
+
+.task span {
+    font-size: 0.9em;
+}
+
+.task input[type="checkbox"] {
+    height: 18px;
+    width: 18px;
+}
+
+.task button {
+    padding: 0.6em;
+}
+}
+
+@media (max-width:480px) {
+    .app {
+        width: 95vw;
+    }
+
+    .container {
+        padding: 1em;
+    }
+
+    #wrapper input {
+        font-size: 0.9em;
+        padding: 0.8rem;
+    }
+
+    .task {
+        grid-template-columns: 1fr 5fr 1fr 1fr;
+    }
+
+    .task span {
+        font-size: 0.8em;
+    }
+
+    #tasks {
+        max-height: 250px;
+    }
+
 }
